@@ -1,0 +1,10 @@
+api App
+base "/api"
+
+endpoint POST "/increase" {
+  access public
+
+  script {
+    return { value: body.value + 1 }
+  }
+}

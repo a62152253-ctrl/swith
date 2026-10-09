@@ -1,0 +1,26 @@
+module Contacts
+route "/"
+access public
+
+state {
+  name = "Ada Lovelace"
+  email = "ada@example.com"
+  status = "Fill in the form"
+}
+
+view {
+  <main style="padding:40px;font-family:system-ui">
+    <h1>Contact book</h1>
+    <input bind="name" placeholder="Name">
+    <input bind="email" placeholder="Email">
+    <button action="save">Save contact</button>
+    <p search-text="status"></p>
+  </main>
+}
+
+action save {
+  script {
+    state.status = string.concat("Saved contact: ", state.name)
+  }
+}
+

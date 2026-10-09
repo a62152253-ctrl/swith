@@ -1,0 +1,24 @@
+module TaskBoard
+route "/"
+access public
+
+state {
+  task = "Plan first SWITH app"
+  message = "Ready"
+}
+
+view {
+  <main style="padding:40px;font-family:system-ui">
+    <h1>Task board</h1>
+    <input bind="task" placeholder="New task">
+    <button action="save">Add task</button>
+    <p search-text="message"></p>
+  </main>
+}
+
+action save {
+  script {
+    state.message = string.concat("Added: ", string.trim(state.task))
+  }
+}
+

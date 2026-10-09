@@ -1,0 +1,21 @@
+module Counter
+route "/"
+access public
+
+state { value = 0 }
+
+view {
+  <main style="padding:40px;font-family:system-ui">
+    <h1>API counter</h1>
+    <p search-text="value"></p>
+    <button action="increase">Increase</button>
+  </main>
+}
+
+action increase {
+  script {
+    let result = api.post("/api/increase", { value: state.value })
+    state.value = result.value
+  }
+}
+

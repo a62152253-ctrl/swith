@@ -1,0 +1,13 @@
+app "Contact Book"
+domain "localhost"
+
+dev {
+  host "localhost"
+  port 3442
+  open auto
+  hotReload true
+}
+
+modules { Contacts }
+start { Contacts }
+
